@@ -16,7 +16,7 @@
 
 
 - Ubuntu 22.04 on g4dn.12xlarge よりも **レスポンスが速い** 印象。 
-  - 遅いのは Tesla T4の性能、accelerate でのGPU分散、AWSの仮想環境などが原因か。
+  - g4dn.12xlargeで遅いのは Tesla T4の性能、accelerate でのGPU分散、AWSの仮想環境などが原因か。
 
 
 - 12B(120億パラメータ)っていうのが 24GB と相性よいかも。
@@ -81,8 +81,81 @@ python main.py
 
 サーバーが起動した後、ブラウザで http://localhost:8001 にアクセスすると、チャットウィンドウが開くので Dolly 2.0 を試すことができる!
 
+動画  
+https://www.youtube.com/watch?v=z8YqlwqNTXI
+
+## GPU メモリ使用量
+
+ほぼ 24GB 使ってる
+
+![img_gpumem](img_gpumem.png)
 
 # Appendix
+
+## ドリーさんに「桃太郎」の続きをつくってもらった
+
+動画  
+https://www.youtube.com/watch?v=Bm4oLDWaUAM
+
+**入力文**
+
+```text
+Once upon a time, 
+there was an old man and an old woman. 
+They are an old couple. 
+The old man went to the mountains to mow the lawn, 
+and the old woman went to the river to wash her clothes. 
+One day, when the old woman went to the river,
+peaches came down from the upper stream. 
+
+Make up the rest of the story. I need about 300 more words.
+```
+
+**日本語意訳**
+
+```text
+昔むかし、あるところに老夫婦（おじいさんとおばあさん）がいました。
+おじいさんは山に芝刈りにいき、おばあさんは川に洗濯にいきます。
+ある日、おばあさんが川にいくと、上流から桃が流れてきました。
+
+このものがたりの続きをつくってください。３００ワードくらいで。
+```
+
+**ドリーさんからのレスポンス**
+
+```text
+The peaches came down from the upper stream and fell into the river. 
+The old woman was washing clothes and the old man was mowing the lawn when the peaches fell down. 
+The old man didn't like the idea of peaches in the river, 
+so he went to get a boat to go fishing. 
+When the old man went down to the lower river to go fishing, 
+the peaches asked him to help them get out of the river. 
+The old man agreed, and the two went fishing in the middle river. 
+There were a lot of fish in the middle river, 
+and the old man and the peaches caught many fishes. 
+Finally, the old man used his tackle box to catch a giant fish. 
+The fish swam to the upper river and the old man and the peaches got out of the river.
+```
+
+**日本語意訳**
+
+```text
+桃は上流から下ってきて川に落ちました。
+桃が落ちたときおばあさんは洗濯をしていて、おじいさんは芝を刈っていました。
+
+おじいさんは桃が川に落ちているのが気にいらなかったので
+ボートをとってきて釣りに行きました。
+
+おじいさんが釣りに行くために下流に降りると
+桃が「川から上がるのを手伝ってほしい」と言いました。
+
+おじいさんはそれを承諾し、おじいさんと桃は川の真ん中に釣りに行きました。
+そこには魚がたくさんいて、おじいさんと桃はたくさんの魚を釣りました。
+
+そしてついに、おじいさんはタックルボックスを使い、
+巨大な魚を釣り上げました。魚は川の上のほうまで泳いでいき、
+おじいさんと桃は川からあがりましたとさ。
+```
 
 ## conda コマンド一覧
 
