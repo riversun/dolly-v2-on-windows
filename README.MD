@@ -55,7 +55,7 @@ pip install fastapi uvicorn
 ソースコードをクローンする
 
 ```
-https://github.com/riversun/dolly-v2-on-windows.git
+https://github.com/riversun/dolly-v2-on-windows-ja.git
 ```
 
 ## STEP 4: チャットサーバーを起動する
