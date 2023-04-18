@@ -13,11 +13,10 @@ URL = f'http://{HOST}:{PORT}'
 model_name = "databricks/dolly-v2-12b"
 
 current_path = os.path.dirname(os.path.abspath(__file__))
-instruct_pipeline = pipeline(model=model_name,
-                             torch_dtype=torch.bfloat16,
-                             trust_remote_code=True,
-                             device_map="auto")
-
+generate_text = pipeline(model=model_name,
+                         torch_dtype=torch.bfloat16,
+                         trust_remote_code=True,
+                         device_map="auto")
 
 app = FastAPI()
 
@@ -38,7 +37,9 @@ app = FastAPI()
 
 @app.get("/chat_api")
 async def chat(text: str = ""):
-    reply = instruct_pipeline(text).replace('\n', '<br>')
+    res = generate_text(text)
+    generated_text = res[0]["generated_text"]
+    reply = generated_text.replace('\n', '<br>')
     print(f'input:{text} reply:{reply}')
 
     outJson = {
@@ -72,7 +73,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
