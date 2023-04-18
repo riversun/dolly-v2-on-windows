@@ -72,7 +72,7 @@ https://github.com/riversun/dolly-v2-on-windows-ja.git
 ## STEP 4: チャットサーバーを起動する
 
 ```
-cd dolly-v2-on-windows
+cd dolly-v2-on-windows-ja
 python main.py
 ```
 
