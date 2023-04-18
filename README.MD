@@ -7,9 +7,20 @@
 # 実験環境
 
 - OS: **Windows 11**　(WSL2 などは使わないスッピンの Windows で OK)
-- GPU: **RTX 3090**
+- GPU: **RTX 3090** (24GB)
 - Python: **Anaconda3 py310_2023.03-0(64-bit)**
 
+# 先にまとめ
+
+- GPUメモリ節約モード `torch_dtype=torch.bfloat16` で起動すれば **RTX 3090** 1枚で推論実行可能。
+
+
+- Ubuntu 22.04 on g4dn.12xlarge よりも **レスポンスが速い** 印象。 
+  - 遅いのは Tesla T4の性能、accelerate でのGPU分散、AWSの仮想環境などが原因か。
+
+
+- 12B(120億パラメータ)っていうのが 24GB と相性よいかも。
+  - 13B(130億パラメータ)だと、fp16 でも 26GB～ 食うのでコンシューマ用GPU x 1 だときついので。
 
 ## STEP 1: Anaconda 仮想環境を作る
 
